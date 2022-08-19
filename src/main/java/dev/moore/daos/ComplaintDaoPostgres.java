@@ -1,9 +1,12 @@
 package dev.moore.daos;
 
 import dev.moore.entities.Complaint;
+import dev.moore.entities.ComplaintStatus;
 import dev.moore.utils.ConnectionUtil;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ComplaintDaoPostgres implements ComplaintDAO{
 
@@ -22,6 +25,50 @@ public class ComplaintDaoPostgres implements ComplaintDAO{
             complaint.setComplaintId(generatedKey);
             return complaint;
         }catch(SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public List<Complaint> getAllComplaints() {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "select * from complaint";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            List<Complaint> complaintList = new ArrayList<>();
+            while(resultSet.next()){
+                Complaint complaint = new Complaint();
+                complaint.setComplaintId(resultSet.getInt("complaint_id"));
+                complaint.setDescription(resultSet.getString("description"));
+                complaint.setComplaintStatus(ComplaintStatus.valueOf(resultSet.getString("status")));
+                complaint.setMeetingId(resultSet.getInt("meeting_id"));
+                complaintList.add(complaint);
+            }
+
+            return complaintList;
+
+        }catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Complaint updateComplaint(Complaint complaint) {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "update complaint set status = ?, meeting_id = ? where complaint_id = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,complaint.getComplaintStatus().toString());
+            preparedStatement.setInt(2,complaint.getMeetingId());
+            preparedStatement.setInt(3,complaint.getComplaintId());
+
+            preparedStatement.executeUpdate();
+
+            return complaint;
+
+        }catch (SQLException e) {
             e.printStackTrace();
             return null;
         }

@@ -47,6 +47,24 @@ public class App {
             ctx.result(json);
         });
 
+        app.get("/complaints",ctx -> {
+           List<Complaint> complaintList = complaintService.getAllComplaints();
+           Gson gson = new Gson();
+           String json = gson.toJson(complaintList);
+           ctx.status(200);
+           ctx.result(json);
+        });
+
+        app.patch("/complaints",ctx -> {
+           String json = ctx.body();
+           Gson gson = new Gson();
+           Complaint complaint = gson.fromJson(json, Complaint.class);
+           Complaint updatedComplaint = complaintService.updateComplaint(complaint);
+           String updatedJson = gson.toJson(updatedComplaint);
+           ctx.status(200);
+           ctx.result(updatedJson);
+        });
+
         app.start();
     }
 }

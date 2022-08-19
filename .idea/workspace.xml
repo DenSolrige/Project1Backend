@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added report complaints user story">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDaoPostgres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/MeetingDaoTests.java" afterDir="false" />
+    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added view meetings user story">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Meeting.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Meeting.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ComplaintDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ComplaintDAO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ComplaintDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ComplaintDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/ComplaintService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/ComplaintService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/ComplaintServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/ComplaintServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/ComplaintDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/ComplaintDaoTests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="RunManager" selected="Application.App">
+  <component name="RunManager" selected="Gradle.ComplaintDaoTests">
     <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="dev.moore.app.App" />
       <module name="Project1.main" />
@@ -156,8 +154,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.MeetingDaoTests.get_all_meetings_test" />
         <item itemvalue="Gradle.ComplaintDaoTests" />
+        <item itemvalue="Gradle.MeetingDaoTests.get_all_meetings_test" />
         <item itemvalue="Gradle.ComplaintDaoTests.create_complaint_test" />
         <item itemvalue="Application.App" />
         <item itemvalue="Gradle.ConnectionTests" />
@@ -180,7 +178,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660688203771</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Added view meetings user story">
+      <created>1660936680320</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1660936680320</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -196,6 +201,7 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Added report complaints user story" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added report complaints user story" />
+    <MESSAGE value="Added view meetings user story" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added view meetings user story" />
   </component>
 </project>
