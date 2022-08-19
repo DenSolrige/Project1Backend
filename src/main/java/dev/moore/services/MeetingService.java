@@ -1,9 +1,9 @@
-package dev.moore.daos;
+package dev.moore.services;
 
 import dev.moore.entities.Meeting;
 
 import java.util.List;
 
-public interface MeetingDAO {
+public interface MeetingService {
     List<Meeting> getAllMeetings();
 }
