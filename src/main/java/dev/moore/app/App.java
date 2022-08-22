@@ -65,6 +65,16 @@ public class App {
            ctx.result(updatedJson);
         });
 
+        app.post("/meetings", ctx -> {
+           String json = ctx.body();
+           Gson gson = new Gson();
+           Meeting meeting = gson.fromJson(json, Meeting.class);
+           Meeting savedMeeting = meetingService.createMeeting(meeting);
+           String savedJson = gson.toJson(savedMeeting);
+           ctx.status(200);
+           ctx.result(savedJson);
+        });
+
         app.start();
     }
 }

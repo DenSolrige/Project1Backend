@@ -18,4 +18,10 @@ public class MeetingDaoTests {
         Assertions.assertEquals(-1,meetingList.get(0).getMeetingId());
         Assertions.assertNotEquals(0,meetingList.size());
     }
+
+    @Test
+    void create_meeting_test(){
+        Meeting meeting = meetingDAO.createMeeting(new Meeting("Test Meeting -ignore","doesn't matter",System.currentTimeMillis()/1000));
+        Assertions.assertNotEquals(0,meeting.getMeetingId());
+    }
 }

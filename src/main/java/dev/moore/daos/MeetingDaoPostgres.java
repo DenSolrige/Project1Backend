@@ -3,10 +3,7 @@ package dev.moore.daos;
 import dev.moore.entities.Meeting;
 import dev.moore.utils.ConnectionUtil;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -32,6 +29,28 @@ public class MeetingDaoPostgres implements MeetingDAO{
 
             return meetingList;
 
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
+    public Meeting createMeeting(Meeting meeting) {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "insert into meeting values(default,?,?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql, Statement.RETURN_GENERATED_KEYS);
+            preparedStatement.setString(1, meeting.getDescription());
+            preparedStatement.setString(2, meeting.getAddress());
+            preparedStatement.setLong(3,meeting.getTime());
+
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getGeneratedKeys();
+            resultSet.next();
+            int generatedKey = resultSet.getInt("meeting_id");
+            meeting.setMeetingId(generatedKey);
+            return meeting;
         }catch(SQLException e){
             e.printStackTrace();
             return null;

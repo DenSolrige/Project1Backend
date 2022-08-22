@@ -17,4 +17,9 @@ public class MeetingServiceImpl implements MeetingService {
     public List<Meeting> getAllMeetings() {
         return this.meetingDAO.getAllMeetings();
     }
+
+    @Override
+    public Meeting createMeeting(Meeting meeting) {
+        return this.meetingDAO.createMeeting(meeting);
+    }
 }
