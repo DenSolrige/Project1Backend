@@ -12,6 +12,10 @@ on:
     branches: [ "master" ]
   pull_request:
     branches: [ "master" ]
+    
+env: 
+  AZURE_SQL_DB_P1:
+    secrets.KEY;
 
 permissions:
   contents: read
