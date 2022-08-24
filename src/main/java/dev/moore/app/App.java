@@ -71,7 +71,7 @@ public class App {
            Meeting meeting = gson.fromJson(json, Meeting.class);
            Meeting savedMeeting = meetingService.createMeeting(meeting);
            String savedJson = gson.toJson(savedMeeting);
-           ctx.status(200);
+           ctx.status(201);
            ctx.result(savedJson);
         });
 

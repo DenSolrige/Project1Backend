@@ -4,14 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added review complaints user story">
+    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added create meetings user story">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/MeetingDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/MeetingDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Constituent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Constituent.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -192,7 +188,14 @@
       <option name="project" value="LOCAL" />
       <updated>1660942643098</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Added create meetings user story">
+      <created>1661192045446</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1661192045446</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -210,6 +213,7 @@
     <MESSAGE value="Added report complaints user story" />
     <MESSAGE value="Added view meetings user story" />
     <MESSAGE value="Added review complaints user story" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added review complaints user story" />
+    <MESSAGE value="Added create meetings user story" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added create meetings user story" />
   </component>
 </project>
