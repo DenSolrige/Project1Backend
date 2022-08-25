@@ -2,13 +2,13 @@ package dev.moore.app;
 
 import com.google.gson.Gson;
 import dev.moore.daos.ComplaintDaoPostgres;
+import dev.moore.daos.ConstituentDaoPostgres;
 import dev.moore.daos.MeetingDaoPostgres;
 import dev.moore.entities.Complaint;
+import dev.moore.entities.Constituent;
 import dev.moore.entities.Meeting;
-import dev.moore.services.ComplaintService;
-import dev.moore.services.ComplaintServiceImpl;
-import dev.moore.services.MeetingService;
-import dev.moore.services.MeetingServiceImpl;
+import dev.moore.exceptions.UsernameAlreadyTakenException;
+import dev.moore.services.*;
 import io.javalin.Javalin;
 
 import java.util.List;
@@ -17,6 +17,7 @@ public class App {
 
     public static ComplaintService complaintService = new ComplaintServiceImpl(new ComplaintDaoPostgres());
     public static MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres());
+    public static LoginService loginService = new LoginServiceImpl(new ConstituentDaoPostgres());
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
@@ -74,6 +75,21 @@ public class App {
            ctx.status(201);
            ctx.result(savedJson);
         });
+
+        app.post("/signup", ctx -> {
+            String json = ctx.body();
+            Gson gson = new Gson();
+            Constituent constituent = gson.fromJson(json, Constituent.class);
+            Constituent savedConstituent = loginService.createAccount(constituent);
+            String savedJson = gson.toJson(savedConstituent);
+            ctx.status(201);
+            ctx.result(savedJson);
+        });
+
+        app.exception(UsernameAlreadyTakenException.class, ((exception, ctx) -> {
+            ctx.status(400);
+            ctx.result("Username already taken");
+        }));
 
         app.start();
     }
