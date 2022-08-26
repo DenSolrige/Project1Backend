@@ -3,14 +3,16 @@ package dev.moore.dtos;
 public class MeetingSpeakerOutput {
     private String fname;
     private String lname;
+    private String username;
     private int meetingId;
 
     public MeetingSpeakerOutput() {
     }
 
-    public MeetingSpeakerOutput(String fname, String lname, int meetingId) {
+    public MeetingSpeakerOutput(String fname, String lname, String username, int meetingId) {
         this.fname = fname;
         this.lname = lname;
+        this.username = username;
         this.meetingId = meetingId;
     }
 
@@ -36,6 +38,14 @@ public class MeetingSpeakerOutput {
 
     public void setMeetingId(int meetingId) {
         this.meetingId = meetingId;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     @Override

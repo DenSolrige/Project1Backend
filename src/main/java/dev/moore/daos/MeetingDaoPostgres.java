@@ -77,7 +77,7 @@ public class MeetingDaoPostgres implements MeetingDAO{
     @Override
     public List<MeetingSpeakerOutput> getAllSpeakers() {
         try(Connection connection = ConnectionUtil.createConnection()){
-            String sql = "select fname,lname,meeting_id from meeting_speaker inner join app_user on app_user.username = meeting_speaker.username";
+            String sql = "select fname,lname,app_user.username,meeting_id from meeting_speaker inner join app_user on app_user.username = meeting_speaker.username";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.execute();
 
@@ -87,6 +87,7 @@ public class MeetingDaoPostgres implements MeetingDAO{
                 MeetingSpeakerOutput meetingSpeakerOutput = new MeetingSpeakerOutput();
                 meetingSpeakerOutput.setFname(resultSet.getString("fname"));
                 meetingSpeakerOutput.setLname(resultSet.getString("lname"));
+                meetingSpeakerOutput.setUsername(resultSet.getString("username"));
                 meetingSpeakerOutput.setMeetingId(resultSet.getInt("meeting_id"));
                 meetingSpeakerOutputs.add(meetingSpeakerOutput);
             }

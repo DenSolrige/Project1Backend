@@ -4,18 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added register account">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/dtos/MeetingSpeakerInput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/dtos/MeetingSpeakerOutput.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/exceptions/MeetingSpeakerInvalidException.java" afterDir="false" />
+    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added get all speakers and add speaker">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/MeetingDaoPostgres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/MeetingServiceImpl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/MeetingDaoTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/MeetingDaoTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/dtos/MeetingSpeakerOutput.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/dtos/MeetingSpeakerOutput.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,6 +18,16 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view />
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -55,8 +57,21 @@
     "SHARE_PROJECT_CONFIGURATION_FILES": "true"
   }
 }]]></component>
-  <component name="RunManager" selected="Gradle.MeetingDaoTests.create_meeting_speaker_test">
-    <configuration name="ConstituentDaoTests.create_account_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+  <component name="RunManager" selected="Application.App">
+    <configuration name="App" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="dev.moore.app.App" />
+      <module name="Project1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="dev.moore.app.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ComplaintDaoTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -69,7 +84,7 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dev.moore.daotests.ConstituentDaoTests.create_account_test&quot;" />
+            <option value="&quot;dev.moore.daotests.ComplaintDaoTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -79,7 +94,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="ConstituentDaoTests.register_account_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="ConstituentDaoTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -92,7 +107,30 @@
           <list>
             <option value=":test" />
             <option value="--tests" />
-            <option value="&quot;dev.moore.daotests.ConstituentDaoTests.register_account_test&quot;" />
+            <option value="&quot;dev.moore.daotests.ConstituentDaoTests&quot;" />
+          </list>
+        </option>
+        <option name="vmOptions" />
+      </ExternalSystemSettings>
+      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
+      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
+      <DebugAllEnabled>false</DebugAllEnabled>
+      <method v="2" />
+    </configuration>
+    <configuration name="MeetingDaoTests" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+      <ExternalSystemSettings>
+        <option name="executionName" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$" />
+        <option name="externalSystemIdString" value="GRADLE" />
+        <option name="scriptParameters" value="" />
+        <option name="taskDescriptions">
+          <list />
+        </option>
+        <option name="taskNames">
+          <list>
+            <option value=":test" />
+            <option value="--tests" />
+            <option value="&quot;dev.moore.daotests.MeetingDaoTests&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -125,59 +163,13 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="MeetingDaoTests.create_meeting_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;dev.moore.daotests.MeetingDaoTests.create_meeting_test&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="MeetingDaoTests.get_meeting_speakers_test" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":test" />
-            <option value="--tests" />
-            <option value="&quot;dev.moore.daotests.MeetingDaoTests.get_meeting_speakers_test&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Gradle.MeetingDaoTests" />
+        <item itemvalue="Gradle.ConstituentDaoTests" />
+        <item itemvalue="Gradle.ComplaintDaoTests" />
+        <item itemvalue="Application.App" />
         <item itemvalue="Gradle.MeetingDaoTests.create_meeting_speaker_test" />
-        <item itemvalue="Gradle.MeetingDaoTests.get_meeting_speakers_test" />
-        <item itemvalue="Gradle.ConstituentDaoTests.create_account_test" />
-        <item itemvalue="Gradle.MeetingDaoTests.create_meeting_test" />
-        <item itemvalue="Gradle.ConstituentDaoTests.register_account_test" />
       </list>
     </recent_temporary>
   </component>
@@ -246,7 +238,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661539382871</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Added get all speakers and add speaker">
+      <created>1661549126329</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1661549126329</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -268,6 +267,7 @@
     <MESSAGE value="Added request account stretch user story" />
     <MESSAGE value="Added login" />
     <MESSAGE value="Added register account" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added register account" />
+    <MESSAGE value="Added get all speakers and add speaker" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added get all speakers and add speaker" />
   </component>
 </project>
