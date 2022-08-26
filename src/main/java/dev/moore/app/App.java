@@ -4,9 +4,12 @@ import com.google.gson.Gson;
 import dev.moore.daos.ComplaintDaoPostgres;
 import dev.moore.daos.ConstituentDaoPostgres;
 import dev.moore.daos.MeetingDaoPostgres;
+import dev.moore.dtos.LoginCredentials;
 import dev.moore.entities.Complaint;
 import dev.moore.entities.Constituent;
 import dev.moore.entities.Meeting;
+import dev.moore.exceptions.NoAccountFoundException;
+import dev.moore.exceptions.PasswordMismatchException;
 import dev.moore.exceptions.UsernameAlreadyTakenException;
 import dev.moore.services.*;
 import io.javalin.Javalin;
@@ -86,9 +89,30 @@ public class App {
             ctx.result(savedJson);
         });
 
+        app.post("/login", ctx -> {
+            String body = ctx.body();
+            Gson gson = new Gson();
+            LoginCredentials credentials = gson.fromJson(body, LoginCredentials.class);
+
+            Constituent constituent = loginService.validateAccount(credentials.getUsername(), credentials.getPassword());
+            String userJSON = gson.toJson(constituent);
+            ctx.status(200);
+            ctx.result(userJSON);
+        });
+
         app.exception(UsernameAlreadyTakenException.class, ((exception, ctx) -> {
             ctx.status(400);
             ctx.result("Username already taken");
+        }));
+
+        app.exception(NoAccountFoundException.class, ((exception, ctx) -> {
+            ctx.status(404);
+            ctx.result(exception.getMessage());
+        }));
+
+        app.exception(PasswordMismatchException.class, ((exception, ctx) -> {
+            ctx.status(400);
+            ctx.result("Password did not match!");
         }));
 
         app.start();

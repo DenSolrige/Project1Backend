@@ -34,6 +34,31 @@ public class ConstituentDaoPostgres implements ConstituentDAO{
     }
 
     @Override
+    public Constituent getAccountByUsername(String username) {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "select * from app_user where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+            Constituent constituent = new Constituent();
+            resultSet.next();
+            constituent.setConstituentId(resultSet.getInt("app_user_id"));
+            constituent.setFname(resultSet.getString("fname"));
+            constituent.setLname(resultSet.getString("lname"));
+            constituent.setUsername(username);
+            constituent.setPassword(resultSet.getString("password"));
+            constituent.setCouncilMember(resultSet.getBoolean("is_council_member"));
+            constituent.setRegistered(resultSet.getBoolean("is_registered"));
+
+            return constituent;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    @Override
     public List<Constituent> getAllAccounts() {
         try(Connection connection = ConnectionUtil.createConnection()){
             String sql = "select * from app_user";

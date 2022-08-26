@@ -4,16 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added create meetings user story">
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ConstituentDaoPostgres.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/exceptions/UsernameAlreadyTakenException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/dev/moore/daotests/ConstituentDaoTests.java" afterDir="false" />
+    <list default="true" id="df02fe87-e8b5-4cb1-a725-d2edd2d19300" name="Changes" comment="Added request account stretch user story">
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/dtos/LoginCredentials.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/exceptions/NoAccountFoundException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/dev/moore/exceptions/PasswordMismatchException.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/app/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ConstituentDAO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ConstituentDAO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Constituent.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/entities/Constituent.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ConstituentDaoPostgres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/daos/ConstituentDaoPostgres.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/dev/moore/services/LoginServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -201,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1661192045446</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added request account stretch user story">
+      <created>1661455659477</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1661455659477</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -220,6 +227,7 @@
     <MESSAGE value="Added view meetings user story" />
     <MESSAGE value="Added review complaints user story" />
     <MESSAGE value="Added create meetings user story" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added create meetings user story" />
+    <MESSAGE value="Added request account stretch user story" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added request account stretch user story" />
   </component>
 </project>
