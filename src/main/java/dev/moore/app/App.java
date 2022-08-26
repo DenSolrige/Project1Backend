@@ -107,6 +107,16 @@ public class App {
             ctx.status(200);
         });
 
+        app.get("/constituents",ctx -> {
+            List<Constituent> constituentList = accountService.getAllAccounts();
+            constituentList.forEach(constituent -> constituent.setPassword(""));
+            constituentList.removeIf(constituent -> constituent.isRegistered());
+            Gson gson = new Gson();
+            String json = gson.toJson(constituentList);
+            ctx.status(200);
+            ctx.result(json);
+        });
+
         app.exception(UsernameAlreadyTakenException.class, ((exception, ctx) -> {
             ctx.status(400);
             ctx.result("Username already taken");
