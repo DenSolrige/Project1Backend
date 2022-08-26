@@ -1,5 +1,7 @@
 package dev.moore.daos;
 
+import dev.moore.dtos.MeetingSpeakerInput;
+import dev.moore.dtos.MeetingSpeakerOutput;
 import dev.moore.entities.Meeting;
 import dev.moore.utils.ConnectionUtil;
 
@@ -57,4 +59,43 @@ public class MeetingDaoPostgres implements MeetingDAO{
         }
     }
 
+    @Override
+    public void addSpeaker(MeetingSpeakerInput meetingSpeakerInput) {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "insert into meeting_speaker values(?,?)";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1, meetingSpeakerInput.getMeetingId());
+            preparedStatement.setString(2, meetingSpeakerInput.getUsername());
+
+            preparedStatement.execute();
+
+        }catch(SQLException e){
+            e.printStackTrace();
+        }
+    }
+
+    @Override
+    public List<MeetingSpeakerOutput> getAllSpeakers() {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "select fname,lname,meeting_id from meeting_speaker inner join app_user on app_user.username = meeting_speaker.username";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.execute();
+
+            ResultSet resultSet = preparedStatement.getResultSet();
+            List<MeetingSpeakerOutput> meetingSpeakerOutputs = new ArrayList<>();
+            while(resultSet.next()){
+                MeetingSpeakerOutput meetingSpeakerOutput = new MeetingSpeakerOutput();
+                meetingSpeakerOutput.setFname(resultSet.getString("fname"));
+                meetingSpeakerOutput.setLname(resultSet.getString("lname"));
+                meetingSpeakerOutput.setMeetingId(resultSet.getInt("meeting_id"));
+                meetingSpeakerOutputs.add(meetingSpeakerOutput);
+            }
+
+            return meetingSpeakerOutputs;
+
+        }catch(SQLException e){
+            e.printStackTrace();
+            return null;
+        }
+    }
 }

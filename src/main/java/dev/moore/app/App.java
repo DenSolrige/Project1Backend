@@ -5,9 +5,12 @@ import dev.moore.daos.ComplaintDaoPostgres;
 import dev.moore.daos.ConstituentDaoPostgres;
 import dev.moore.daos.MeetingDaoPostgres;
 import dev.moore.dtos.LoginCredentials;
+import dev.moore.dtos.MeetingSpeakerInput;
+import dev.moore.dtos.MeetingSpeakerOutput;
 import dev.moore.entities.Complaint;
 import dev.moore.entities.Constituent;
 import dev.moore.entities.Meeting;
+import dev.moore.exceptions.MeetingSpeakerInvalidException;
 import dev.moore.exceptions.NoAccountFoundException;
 import dev.moore.exceptions.PasswordMismatchException;
 import dev.moore.exceptions.UsernameAlreadyTakenException;
@@ -19,7 +22,7 @@ import java.util.List;
 public class App {
 
     public static ComplaintService complaintService = new ComplaintServiceImpl(new ComplaintDaoPostgres());
-    public static MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres());
+    public static MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres(), new ConstituentDaoPostgres());
     public static LoginService loginService = new LoginServiceImpl(new ConstituentDaoPostgres());
     public static AccountService accountService = new AccountServiceImpl(new ConstituentDaoPostgres());
 
@@ -104,7 +107,7 @@ public class App {
         app.patch("/constituents",ctx -> {
             String username = ctx.body();
             accountService.registerAccount(username);
-            ctx.status(200);
+            ctx.status(202);
         });
 
         app.get("/constituents",ctx -> {
@@ -117,20 +120,41 @@ public class App {
             ctx.result(json);
         });
 
-        app.exception(UsernameAlreadyTakenException.class, ((exception, ctx) -> {
+        app.get("/meetings/speakers",ctx -> {
+            List<MeetingSpeakerOutput> meetingSpeakerOutputs = meetingService.getAllSpeakers();
+            Gson gson = new Gson();
+            String json = gson.toJson(meetingSpeakerOutputs);
+            ctx.status(200);
+            ctx.result(json);
+        });
+
+        app.put("/meetings/speakers",ctx -> {
+            String body = ctx.body();
+            Gson gson = new Gson();
+            MeetingSpeakerInput meetingSpeakerInput = gson.fromJson(body, MeetingSpeakerInput.class);
+            meetingService.addSpeaker(meetingSpeakerInput);
+            ctx.status(202);
+        });
+
+        app.exception(UsernameAlreadyTakenException.class, (exception, ctx) -> {
             ctx.status(400);
             ctx.result("Username already taken");
-        }));
+        });
 
-        app.exception(NoAccountFoundException.class, ((exception, ctx) -> {
+        app.exception(NoAccountFoundException.class, (exception, ctx) -> {
             ctx.status(404);
             ctx.result(exception.getMessage());
-        }));
+        });
 
-        app.exception(PasswordMismatchException.class, ((exception, ctx) -> {
+        app.exception(PasswordMismatchException.class, (exception, ctx) -> {
             ctx.status(400);
             ctx.result("Password did not match!");
-        }));
+        });
+
+        app.exception(MeetingSpeakerInvalidException.class, (exception, ctx) -> {
+            ctx.status(404);
+            ctx.result(exception.getMessage());
+        });
 
         app.start();
     }
