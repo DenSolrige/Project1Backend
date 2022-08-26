@@ -27,4 +27,14 @@ public class ConstituentDaoTests {
         Constituent savedConstituent = constituentDAO.createAccount(constituent);
         Assertions.assertNotEquals(0,savedConstituent.getConstituentId());
     }
+
+    @Test
+    void register_account_test(){
+        List<Constituent> constituentList = constituentDAO.getAllAccounts();
+        Constituent constituent = constituentList.get(constituentList.size()-1);
+        boolean result = constituentDAO.registerAccount(constituent.getUsername());
+        Constituent registeredConstituent = constituentDAO.getAccountByUsername(constituent.getUsername());
+        Assertions.assertEquals(true, result);
+        Assertions.assertEquals(true,registeredConstituent.isRegistered());
+    }
 }

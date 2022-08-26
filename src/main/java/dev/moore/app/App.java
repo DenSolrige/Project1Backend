@@ -21,6 +21,7 @@ public class App {
     public static ComplaintService complaintService = new ComplaintServiceImpl(new ComplaintDaoPostgres());
     public static MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres());
     public static LoginService loginService = new LoginServiceImpl(new ConstituentDaoPostgres());
+    public static AccountService accountService = new AccountServiceImpl(new ConstituentDaoPostgres());
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {
@@ -98,6 +99,12 @@ public class App {
             String userJSON = gson.toJson(constituent);
             ctx.status(200);
             ctx.result(userJSON);
+        });
+
+        app.patch("/constituents",ctx -> {
+            String username = ctx.body();
+            accountService.registerAccount(username);
+            ctx.status(200);
         });
 
         app.exception(UsernameAlreadyTakenException.class, ((exception, ctx) -> {

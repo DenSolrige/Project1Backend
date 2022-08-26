@@ -9,4 +9,5 @@ public interface ConstituentDAO {
     Constituent createAccount(Constituent constituent);
     Constituent getAccountByUsername(String username);
     List<Constituent> getAllAccounts();
+    boolean registerAccount(String username);
 }

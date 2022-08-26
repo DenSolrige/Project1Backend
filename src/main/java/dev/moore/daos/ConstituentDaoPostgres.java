@@ -83,4 +83,18 @@ public class ConstituentDaoPostgres implements ConstituentDAO{
             return null;
         }
     }
+
+    @Override
+    public boolean registerAccount(String username) {
+        try(Connection connection = ConnectionUtil.createConnection()){
+            String sql = "update app_user set is_registered = true where username = ?";
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setString(1,username);
+            preparedStatement.execute();
+            return true;
+        }catch(SQLException e){
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
