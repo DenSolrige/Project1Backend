@@ -15,7 +15,6 @@ class ConstituentDaoTests {
     @Test
     void get_all_accounts_test(){
         List<Constituent> constituentList = constituentDAO.getAllAccounts();
-        System.out.println(constituentList);
         Assertions.assertNotEquals(0, constituentList.size());
     }
 
