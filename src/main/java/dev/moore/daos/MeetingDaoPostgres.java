@@ -33,7 +33,7 @@ public class MeetingDaoPostgres implements MeetingDAO{
 
         }catch(SQLException e){
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
     }
 
@@ -96,7 +96,7 @@ public class MeetingDaoPostgres implements MeetingDAO{
 
         }catch(SQLException e){
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
     }
 }

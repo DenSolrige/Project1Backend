@@ -18,8 +18,6 @@ public class ConstituentDaoPostgres implements ConstituentDAO{
             preparedStatement.setString(2,constituent.getLname());
             preparedStatement.setString(3,constituent.getUsername());
             preparedStatement.setString(4,constituent.getPassword());
-//            preparedStatement.setBoolean(5,constituent.isCouncilMember());
-//            preparedStatement.setBoolean(6,constituent.isRegistered());
 
             preparedStatement.execute();
             ResultSet resultSet = preparedStatement.getGeneratedKeys();
@@ -80,7 +78,7 @@ public class ConstituentDaoPostgres implements ConstituentDAO{
             return constituentList;
         }catch(SQLException e){
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
     }
 

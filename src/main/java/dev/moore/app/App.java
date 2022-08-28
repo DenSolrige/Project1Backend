@@ -21,10 +21,10 @@ import java.util.List;
 
 public class App {
 
-    public static ComplaintService complaintService = new ComplaintServiceImpl(new ComplaintDaoPostgres());
-    public static MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres(), new ConstituentDaoPostgres());
-    public static LoginService loginService = new LoginServiceImpl(new ConstituentDaoPostgres());
-    public static AccountService accountService = new AccountServiceImpl(new ConstituentDaoPostgres());
+    private static final ComplaintService complaintService = new ComplaintServiceImpl(new ComplaintDaoPostgres());
+    private static final MeetingService meetingService = new MeetingServiceImpl(new MeetingDaoPostgres(), new ConstituentDaoPostgres());
+    private static final LoginService loginService = new LoginServiceImpl(new ConstituentDaoPostgres());
+    private static final AccountService accountService = new AccountServiceImpl(new ConstituentDaoPostgres());
 
     public static void main(String[] args) {
         Javalin app = Javalin.create(config -> {

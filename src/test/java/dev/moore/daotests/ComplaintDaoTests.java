@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-public class ComplaintDaoTests {
+class ComplaintDaoTests {
 
     static ComplaintDAO complaintDAO = new ComplaintDaoPostgres();
     static List<Complaint> complaintList = new ArrayList<>();

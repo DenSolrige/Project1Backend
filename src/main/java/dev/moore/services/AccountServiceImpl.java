@@ -3,7 +3,6 @@ package dev.moore.services;
 import dev.moore.daos.ConstituentDAO;
 import dev.moore.entities.Constituent;
 import dev.moore.exceptions.NoAccountFoundException;
-import dev.moore.exceptions.PasswordMismatchException;
 
 import java.util.List;
 

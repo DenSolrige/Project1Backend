@@ -7,7 +7,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
-public class AccountServiceTests {
+class AccountServiceTests {
 
     @Test
     void username_must_exist_test(){

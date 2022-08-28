@@ -51,7 +51,7 @@ public class ComplaintDaoPostgres implements ComplaintDAO{
 
         }catch (SQLException e) {
             e.printStackTrace();
-            return null;
+            return new ArrayList<>();
         }
     }
 

@@ -12,7 +12,7 @@ import org.mockito.Mockito;
 
 import java.util.ArrayList;
 
-public class MeetingServiceTests {
+class MeetingServiceTests {
 
     @Test
     void username_must_exist_test(){

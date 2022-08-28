@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 import java.util.List;
 
-public class ConstituentDaoTests {
+class ConstituentDaoTests {
 
     static ConstituentDAO constituentDAO = new ConstituentDaoPostgres();
 

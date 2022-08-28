@@ -21,6 +21,8 @@ dependencies {
 
 test {
     useJUnitPlatform()
+    testLogging.showStandardStreams = true
+    failFast = true
 }
 
 task customFatJar(type: Jar) {

@@ -15,7 +15,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Optional;
 
-public class MeetingDaoTests {
+class MeetingDaoTests {
 
     static MeetingDAO meetingDAO = new MeetingDaoPostgres();
     static ConstituentDAO constituentDAO = new ConstituentDaoPostgres();

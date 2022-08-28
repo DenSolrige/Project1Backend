@@ -7,9 +7,7 @@ import dev.moore.dtos.MeetingSpeakerOutput;
 import dev.moore.entities.Constituent;
 import dev.moore.entities.Meeting;
 import dev.moore.exceptions.MeetingSpeakerInvalidException;
-import dev.moore.exceptions.NoAccountFoundException;
 
-import javax.management.RuntimeMBeanException;
 import java.util.List;
 import java.util.Optional;
 

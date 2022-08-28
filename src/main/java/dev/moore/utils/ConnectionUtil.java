@@ -6,10 +6,13 @@ import java.sql.SQLException;
 
 public class ConnectionUtil {
 
+    private ConnectionUtil() {
+        throw new IllegalStateException("Utility class");
+    }
+
     public static Connection createConnection(){
         try {
-            Connection conn = DriverManager.getConnection(System.getenv("AZURE_SQL_DB_P1"));
-            return conn;
+            return DriverManager.getConnection(System.getenv("AZURE_SQL_DB_P1"));
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

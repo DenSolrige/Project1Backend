@@ -20,7 +20,6 @@ public class LoginServiceImpl implements LoginService{
     public Constituent createAccount(Constituent constituent) {
         List<Constituent> constituentList = this.constituentDAO.getAllAccounts();
         for(Constituent c : constituentList) {
-            System.out.println(c.getUsername());
             if (c.getUsername().equals(constituent.getUsername())) {
                 throw new UsernameAlreadyTakenException("Username already taken");
             }

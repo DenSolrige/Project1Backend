@@ -11,7 +11,7 @@ import org.mockito.Mockito;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginServiceTests {
+class LoginServiceTests {
 
     @Test
     void username_must_be_unique_test(){
