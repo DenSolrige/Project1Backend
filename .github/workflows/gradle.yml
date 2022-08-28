@@ -33,4 +33,4 @@ jobs:
       with:
         arguments: build     
       env: 
-        AZURE_SQL_DB_P1: ${{secrets.KEY}}
+        AZURE_SQL_DB_P1: ${{ secrets.AZURE_SQL_DB_P1 }}
