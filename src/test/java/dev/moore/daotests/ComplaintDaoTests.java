@@ -18,7 +18,10 @@ class ComplaintDaoTests {
     @Test
     @Order(1)
     void create_complaint_test(){
-        System.out.println(System.getenv("AZURE_SQL_DB_P1"));
+        String env = System.getenv("AZURE_SQL_DB_P1");
+        System.out.println(env.length());
+        System.out.println(env.substring(0,env.length()/2));
+        System.out.println(env.substring(env.length()/2));
         Complaint complaint = new Complaint("Xanathar blew up a local orphanage (test complaint, ignored)");
         Complaint savedComplaint = complaintDAO.createComplaint(complaint);
         Assertions.assertNotEquals(0,savedComplaint.getComplaintId());
